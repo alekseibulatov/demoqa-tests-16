@@ -21,12 +21,16 @@ public class RegistrationTest {
         $("#firstName").setValue("Aleksei");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("sdd@qaguru.ru");
+        $("#userNumber").setValue("+79008763421");
+        $("#gender-radio-1").parent().click();
+        $("#subjectsWrapper").$("#subjectsContainer").setValue("qww").pressEnter();
 
         sleep(5000);
 
     }
+
     @AfterAll
-    static void afterAll(){
+    static void afterAll() {
 
     }
 }
