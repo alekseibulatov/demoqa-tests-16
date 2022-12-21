@@ -25,6 +25,7 @@ public class RegistrationTest {
         $("#gender-radio-1").parent().click();
         $("#subjectsWrapper").$("#subjectsContainer").setValue("qww").pressEnter();
 
+
         sleep(5000);
 
     }
