@@ -19,17 +19,21 @@ public class TexBoxTest {
 
     @Test
     void fillFormTest() {
+        String userName = "Aleksei";
+        String userEmail = "user@email.com";
+        String userCurrentAddress = "SPb, Moscow str.";
+        String userPermanentAddress = "SPb, Sadovaya str.";
         open("/text-box");
         $(".main-header").shouldHave(text("Text Box"));
-        $("#userName").setValue("user");
-        $("#userEmail").setValue("user@email.com");
-        $("#currentAddress").setValue("SPb, Moscow str. ");
-        $("#permanentAddress").setValue("SPb, Sadovaya str. ");
+        $("#userName").setValue(userName);
+        $("#userEmail").setValue(userEmail);
+        $("#currentAddress").setValue(userCurrentAddress);
+        $("#permanentAddress").setValue(userPermanentAddress);
         $("#submit").click();
         $("#output").shouldBe(visible);
-        $("#output").$("#name").shouldHave(text("user"));
-        $("#output #email").shouldHave(text("user@email.com"));
-        $("#output").$("#currentAddress").shouldHave(text("SPb, Moscow str. "));
-        $("#output").$("#permanentAddress").shouldHave(text("SPb, Sadovaya str. "));
+        $("#output").$("#name").shouldHave(text(userName));
+        $("#output #email").shouldHave(text(userEmail));
+        $("#output").$("#currentAddress").shouldHave(text(userCurrentAddress));
+        $("#output").$("#permanentAddress").shouldHave(text(userPermanentAddress));
     }
 }
