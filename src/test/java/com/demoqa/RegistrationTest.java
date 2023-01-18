@@ -1,9 +1,8 @@
 package com.demoqa;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -18,15 +17,22 @@ public class RegistrationTest {
     @Test
     void successRegistration() {
         open("/automation-practice-form");
+        $(".main-header").shouldHave(Condition.text("Practice Form"));
         $("#firstName").setValue("Aleksei");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("sdd@qaguru.ru");
-        $("#userNumber").setValue("+79008763421");
         $("#gender-radio-1").parent().click();
-        $("#subjectsWrapper").$("#subjectsContainer").setValue("qww").pressEnter();
-
+        $("#userNumber").setValue("+79008763421"); //
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker").shouldBe(Condition.visible);
+        $(".react-datepicker__year-select").click();
+        $(".react-datepicker__year-select").selectOption("1981");
+        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select").selectOption("March");
+        $(".react-datepicker__day--028").click();
 
         sleep(5000);
+
 
     }
 
