@@ -27,8 +27,8 @@ public class RegistrationTest {
         $("#firstName").setValue("Aleksei");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("sdd@qaguru.ru");
-        $("#gender-radio-1").parent().click();
-        $("#userNumber").setValue("79008763421"); //
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("79008763421");
         $("#dateOfBirthInput").click();
         $(".react-datepicker").shouldBe(Condition.visible);
         $(".react-datepicker__year-select").click();
@@ -37,7 +37,7 @@ public class RegistrationTest {
         $(".react-datepicker__month-select").selectOption("March");
         $(".react-datepicker__day--003:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbies-checkbox-1").parent().click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("original.jpg");
         $("#currentAddress").setValue("SPb. Street ");
         $("#state").click();
@@ -50,6 +50,5 @@ public class RegistrationTest {
         $(".table-responsive").shouldHave(text("Aleksei Ivanov"), text("sdd@qaguru.ru"),
                 text("Male"), text("7900876342"), text("03 March,1981"), text("Maths"),
                 text("Sports"), text("original.jpg"), text("SPb. Street"), text("NCR Delhi"));
-
     }
 }
